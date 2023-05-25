@@ -118,5 +118,48 @@ namespace MarsRover.Test.Models
             // Assert
             Assert.That(y, Is.EqualTo(settedValue));
         }
+
+        [Test]
+        public void Coordenada_ToString_DebeDevolverParentesisInicioYFin()
+        {
+            // Arrange
+            Coordenada test = new(10, 10);
+
+            // Act
+            string res = test.ToString();
+
+            // Assert
+            Assert.Multiple(() =>
+            {                
+                Assert.That(res, Does.StartWith("("));
+                Assert.That(res, Does.EndWith(")"));
+            });
+        }
+
+        [Test]
+        public void Coordenada_ToString_DebeContenerUnaComa()
+        {
+            // Arrange
+            Coordenada test = new(10, 10);
+
+            // Act
+            string res = test.ToString();
+
+            // Assert
+            Assert.That(res, Does.Contain(","));            
+        }
+
+        [Test]
+        public void Coordenada_ToString_DebeFormarCorrectamenteElLiteral()
+        {
+            // Arrange
+            Coordenada test = new(5, 6);
+
+            // Act
+            string res = test.ToString();
+
+            // Assert
+            Assert.That(res, Is.EqualTo("(5,6)"));
+        }
     }
 }

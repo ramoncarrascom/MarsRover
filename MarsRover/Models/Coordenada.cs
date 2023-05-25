@@ -39,11 +39,17 @@ namespace MarsRover.Models
             }
         }
 
-        public Coordenada(int x, int y)        {
+        public Coordenada(int x, int y)
+        {
             ValidateXvalue(x);
             ValidateYvalue(y);
             this.x = x;
             this.y = y;
+        }
+
+        public override string ToString()
+        {
+            return $"({x},{y})";
         }
 
         private static void ValidateXvalue(int x)
