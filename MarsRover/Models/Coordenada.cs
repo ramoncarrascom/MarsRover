@@ -11,61 +11,47 @@ namespace MarsRover.Models
         private int x;
         private int y;
 
-        public int X 
-        { 
-            get 
-            { 
-                return x; 
-            } 
-            
-            set 
+        public int X
+        {
+            get { return x; }
+
+            set
             {
-                ValidateXvalue(value);
-                x = value; 
-            } 
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(X), "El valor de X debe ser un número mayor que 0");
+                }
+
+                x = value;
+            }
         }
 
         public int Y
         {
-            get
-            {
-                return y;
-            }
+            get { return y; }
 
             set
             {
-                ValidateYvalue(value);
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(Y), "El valor de Y debe ser un número mayor que 0");
+                }
+
                 y = value;
             }
         }
 
         public Coordenada(int x, int y)
         {
-            ValidateXvalue(x);
-            ValidateYvalue(y);
-            this.x = x;
-            this.y = y;
+            X = x;
+            Y = y;
         }
 
         public override string ToString()
         {
-            return $"({x},{y})";
+            return $"({X},{Y})";
         }
 
-        private static void ValidateXvalue(int x)
-        {
-            if (x <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(x), "El valor de X debe ser un número mayor que 0");
-            }
-        }
-
-        private static void ValidateYvalue(int y)
-        {
-            if (y <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(y), "El valor de Y debe ser un número mayor que 0");
-            }
-        }
     }
+
 }
