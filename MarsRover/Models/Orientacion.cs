@@ -42,5 +42,10 @@ namespace MarsRover.Models
             orientacionActual--;
             valor = (Orientaciones)(orientacionActual >= 1 ? orientacionActual : 4);
         }
+
+        public Orientacion Clone()
+        {
+            return new Orientacion(valor);
+        }
     }
 }

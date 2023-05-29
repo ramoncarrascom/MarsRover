@@ -122,5 +122,19 @@ namespace MarsRover.Test.Models
             Assert.That(nuevaOrientacion, Is.EqualTo(Orientaciones.NORTE));
         }
 
+        [Test]
+        public void Orientacion_Clone_DevuelveNuevaInstanciaConMismoValor()
+        {
+            // Arrange
+            Orientacion orientacion = new Orientacion(Orientaciones.NORTE);
+
+            // Act
+            Orientacion clonedOrientacion = orientacion.Clone();
+
+            // Assert
+            Assert.That(clonedOrientacion, Is.Not.SameAs(orientacion));
+            Assert.That(clonedOrientacion.Valor, Is.EqualTo(orientacion.Valor));
+        }
+
     }
 }
