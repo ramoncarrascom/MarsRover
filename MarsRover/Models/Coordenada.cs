@@ -52,6 +52,11 @@ namespace MarsRover.Models
             return $"({X},{Y})";
         }
 
+        public Coordenada Clone()
+        {
+            return new Coordenada(X, Y);
+        }
+
     }
 
 }

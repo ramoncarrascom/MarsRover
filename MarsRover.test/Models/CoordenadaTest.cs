@@ -161,5 +161,20 @@ namespace MarsRover.Test.Models
             // Assert
             Assert.That(res, Is.EqualTo("(5,6)"));
         }
+
+        [Test]
+        public void Coordenada_Clone_DevuelveNuevaInstanciaConMismosValores()
+        {
+            // Arrange
+            Coordenada coordenada = new(3, 4);
+
+            // Act
+            Coordenada clonedCoordenada = coordenada.Clone();
+
+            // Assert
+            Assert.That(clonedCoordenada, Is.Not.SameAs(coordenada));
+            Assert.That(clonedCoordenada.X, Is.EqualTo(coordenada.X));
+            Assert.That(clonedCoordenada.Y, Is.EqualTo(coordenada.Y));
+        }
     }
 }
