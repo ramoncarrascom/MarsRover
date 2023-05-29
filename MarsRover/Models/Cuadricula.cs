@@ -57,5 +57,10 @@ namespace MarsRover.Models
             return coordenada.X >= 1 && coordenada.X <= TamanyoX &&
                    coordenada.Y >= 1 && coordenada.Y <= TamanyoY;
         }
+
+        public Cuadricula Clone()
+        {
+            return new Cuadricula(TamanyoX, TamanyoY);
+        }
     }
 }

@@ -146,5 +146,20 @@ namespace MarsRover.Test.Models
             // Assert
             Assert.That(esPermitido, Is.False);
         }
+
+        [Test]
+        public void Cuadricula_Clone_DevuelveNuevaInstanciaConMismosValores()
+        {
+            // Arrange
+            Cuadricula cuadricula = new Cuadricula(5, 7);
+
+            // Act
+            Cuadricula clonedCuadricula = cuadricula.Clone();
+
+            // Assert
+            Assert.That(clonedCuadricula, Is.Not.SameAs(cuadricula));
+            Assert.That(clonedCuadricula.TamanyoX, Is.EqualTo(cuadricula.TamanyoX));
+            Assert.That(clonedCuadricula.TamanyoY, Is.EqualTo(cuadricula.TamanyoY));
+        }
     }
 }
