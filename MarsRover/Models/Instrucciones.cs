@@ -46,15 +46,7 @@ namespace MarsRover.Models
 
         private bool SonLetrasPermitidas(string cadena)
         {
-            foreach (char c in cadena)
-            {
-                if (c != 'L' && c != 'M' && c != 'R' && c != 'l' && c != 'm' && c != 'r')
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return cadena.All(c => "LMRlmr".Contains(c));
         }
     }
 
